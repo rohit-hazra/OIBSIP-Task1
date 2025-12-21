@@ -1,73 +1,101 @@
-   * {
-       box-sizing: border-box;
-       font-family: Arial, Helvetica, sans-serif;
-   }
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-   body {
-       background: #4f86c6;
-       display: flex;
-       justify-content: center;
-       align-items: center;
-       height: 100vh;
-   }
+body {
+    margin: 0;
+    background: #e9f0f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
-   .calculator {
-       background: #eaf4ff;
-       padding: 20px;
-       border-radius: 20px;
-       width: 320px;
-   }
+.calculator {
+    background: #ffffff;
+    padding: 18px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
 
-   .display {
-       background: #cfe6ff;
-       border-radius: 15px;
-       padding: 15px;
-       margin-bottom: 15px;
-   }
+.display {
+    background: #f2f6fb;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
 
-   .expression {
-       font-size: 16px;
-       color: #4a6fa5;
-       min-height: 20px;
-   }
+.expression {
+    font-size: 16px;
+    color: #5f6f86;
+    min-height: 18px;
+    word-wrap: break-word;
+}
 
-   .result {
-       font-size: 36px;
-       text-align: right;
-       color: #0f2a44;
-   }
+.result {
+    font-size: 34px;
+    text-align: right;
+    color: #1f2d3d;
+    font-weight: 600;
+}
 
-   .buttons {
-       display: grid;
-       grid-template-columns: repeat(5, 1fr);
-       gap: 10px;
-   }
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
 
-   button {
-       padding: 15px;
-       font-size: 16px;
-       border: none;
-       border-radius: 10px;
-       background: #cfe6ff;
-       cursor: pointer;
-   }
+button {
+    height: 52px;
+    font-size: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #e6edf6;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
 
-   button.operator {
-       background: #b5d7ff;
-   }
+button:hover {
+    background: #dbe6f3;
+}
 
-   button.action {
-       background: #b5d7ff;
-       font-size: 14px;
-   }
+button:active {
+    transform: scale(0.95);
+}
 
-   button.enter {
-       grid-column: span 2;
-       background: #4f86c6;
-       color: white;
-       font-weight: bold;
-   }
+button.operator {
+    background: #d2def0;
+    font-weight: 600;
+}
 
-   button:hover {
-       opacity: 0.85;
-   }
+button.action {
+    background: #f3dcdc;
+    font-size: 14px;
+}
+
+button.enter {
+    grid-column: span 2;
+    background: #4f86c6;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+    .calculator {
+        max-width: 95%;
+        padding: 16px;
+    }
+
+    button {
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .result {
+        font-size: 30px;
+    }
+}
