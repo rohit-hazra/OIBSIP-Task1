@@ -55,7 +55,6 @@ button {
     border-radius: 12px;
     background: #e6edf6;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
@@ -99,3 +98,4 @@ button.enter {
         font-size: 30px;
     }
 }
+
