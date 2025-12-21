@@ -62,11 +62,11 @@ The project is designed with clarity, simplicity, and usability in mind, making 
 
 3. When ENTER is pressed:
 
-  - The expression is safely evaluated.
+    - The expression is safely evaluated.
 
-  - Percentage values are converted into valid mathematical expressions.
+    - Percentage values are converted into valid mathematical expressions.
 
-  - The result is calculated and displayed.
+    - The result is calculated and displayed.
 
 4. The ans button allows reuse of the previous result in a new calculation.
 
