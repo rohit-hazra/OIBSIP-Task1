@@ -1,21 +1,25 @@
-let expression = '';
+let expression = "";
 let lastAnswer = 0;
 
-const exprEl = document.getElementById('expression');
-const resultEl = document.getElementById('result');
+const exprEl = document.getElementById("expression");
+const resultEl = document.getElementById("result");
 
 function add(value) {
+    // Prevent multiple decimals in a number
+    if (value === "." && expression.split(/[\+\-\*\/]/).pop().includes(".")) {
+        return;
+    }
     expression += value;
     updateDisplay();
 }
 
 function updateDisplay() {
-    exprEl.textContent = expression;
+    exprEl.textContent = expression || "";
 }
 
 function clearAll() {
-    expression = '';
-    resultEl.textContent = '0';
+    expression = "";
+    resultEl.textContent = "0";
     updateDisplay();
 }
 
@@ -26,34 +30,44 @@ function del() {
 
 function calculate() {
     try {
-        const evalResult = eval(expression.replace('%', '/100'));
-        lastAnswer = evalResult;
-        resultEl.textContent = evalResult;
+        const safeExpr = expression.replace(/%/g, "/100");
+        const evalResult = eval(safeExpr);
+
+        if (!isFinite(evalResult)) throw new Error();
+
+        lastAnswer = Number(evalResult.toFixed(8));
+        resultEl.textContent = lastAnswer;
+        updateDisplay();
     } catch {
-        resultEl.textContent = 'Error';
+        resultEl.textContent = "Error";
+        expression = "";
+        updateDisplay();
     }
 }
 
 function sqrt() {
     try {
         const value = eval(expression);
-        // const res = Math.sqrt(value);
-        const res = Number(Math.sqrt(value).toFixed(5));
-        // const res = parseFloat(Math.sqrt(value).toFixed(5));
+        if (value < 0) throw new Error();
+
+        const res = Number(Math.sqrt(value).toFixed(8));
         lastAnswer = res;
-        // updateDisplay();
         resultEl.textContent = res;
+        updateDisplay();
     } catch {
-        resultEl.textContent = 'Error';
+        resultEl.textContent = "Error";
+        expression = "";
+        updateDisplay();
     }
 }
 
 function toggleSign() {
     if (!expression) return;
-    if (expression.startsWith('-')) {
-        expression = expression.substring(1);
+
+    if (expression.startsWith("-")) {
+        expression = expression.slice(1);
     } else {
-        expression = '-' + expression;
+        expression = "-" + expression;
     }
     updateDisplay();
 }
