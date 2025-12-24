@@ -85,7 +85,7 @@ calculator/
 │
 ├── index.html     # Main HTML structure
 ├── style.css      # Styling and responsive design
-├── script.js      # Calculator logic and functionality
+└── script.js      # Calculator logic and functionality
 ```
 ## 📲 Responsive Design
 
