@@ -95,14 +95,6 @@ calculator/
 
 - Optimized for both desktop and mobile devices
 
-## 🔮 Future Improvements
-
-- Keyboard input support
-
-- Calculation history panel
-
-- Scientific functions (sin, cos, log, power)
-
 
 ## 🧪 How to Run the Project
 
